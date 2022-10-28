@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>welcome to ejs</h1>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<%- include ("layout/header.ejs")%>
     <main>
         <form method="post">
             <input type="text" placeholder="programming language" name="pLanguage" />
@@ -25,19 +6,17 @@
 
             <ul>
                 <% if(plNames.length> 0){ %>
-                    <li>
-                        <%= plNames %>
-                    </li>
-                    <% }else{ %>
-                        <p> no data found</p>
+
+                    <% for ( let x=0; x < plNames.length; x++) {  %>
+                       
+                        <li><%= plNames[x] %></li>
+                        <% } %>
+                            
+                        <% }else{ %>
+                                <p> no data found</p>
                         <% } %>
             </ul>
 
         </form>
     </main>
-    <footer>
-        <p>all rights deserve by @kaniz</p>
-    </footer>
-</body>
-
-</html>
+    <%- include ("layout/footer")%>
